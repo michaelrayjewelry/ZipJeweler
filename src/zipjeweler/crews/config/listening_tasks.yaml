@@ -1,0 +1,107 @@
+search_reddit:
+  description: >
+    Search the following subreddits for posts matching our listening topics:
+    {subreddits}
+
+    Search for ALL of these topic categories:
+    1. CAD Modelers — people posting 3D jewelry models or renders
+    2. Jewelry Designers — designers posting renderings and portfolios
+    3. Custom Jewelry Questions — people asking about custom jewelry creation
+    4. Jewelry Production — comments about production issues and workflow
+    5. Casting Issues — jewelers with casting problems
+    6. Looking for CAD — people searching for CAD services/software
+    7. Looking for Designers — people searching for jewelry designers
+    8. Looking for Manufacturers — people searching for manufacturers
+    9. Business Management Pain — inventory, orders, CRM, pricing issues
+
+    Use the configured keywords for each category.
+    Return the most relevant posts from the last 24 hours.
+
+    {user_direction}
+  expected_output: >
+    A list of discovered posts with: subreddit, post URL, author, title,
+    content snippet, topic category, and initial relevance assessment.
+  agent: reddit_listener
+
+search_twitter:
+  description: >
+    Search X/Twitter for tweets matching our listening topics.
+    Use the configured search queries and keywords.
+    Return the most relevant tweets from the last 24 hours.
+
+    {user_direction}
+  expected_output: >
+    A list of discovered tweets with: URL, author, content, topic category,
+    and initial relevance assessment.
+  agent: twitter_listener
+
+search_linkedin:
+  description: >
+    Search LinkedIn for posts matching our listening topics.
+    Focus on jewelry business owners, CAD designers, and industry professionals.
+    Return the most relevant posts from the last 24 hours.
+
+    {user_direction}
+  expected_output: >
+    A list of discovered LinkedIn posts with: URL, author, content,
+    topic category, and initial relevance assessment.
+  agent: linkedin_listener
+
+search_facebook:
+  description: >
+    Search Facebook Groups for discussions matching our listening topics.
+    Focus on jewelry business communities and maker groups.
+    Return the most relevant posts from the last 24 hours.
+
+    {user_direction}
+  expected_output: >
+    A list of discovered Facebook posts with: URL, author, content,
+    topic category, and initial relevance assessment.
+  agent: facebook_listener
+
+search_instagram:
+  description: >
+    Search Instagram for posts matching our listening topics.
+    Monitor relevant hashtags and jewelry business accounts.
+    Return the most relevant posts from the last 24 hours.
+
+    {user_direction}
+  expected_output: >
+    A list of discovered Instagram posts with: URL, author, caption,
+    topic category, and initial relevance assessment.
+  agent: instagram_listener
+
+search_pinterest:
+  description: >
+    Search Pinterest for pins matching our listening topics.
+    Focus on jewelry business planning and organization content.
+    Return the most relevant pins from the last 24 hours.
+
+    {user_direction}
+  expected_output: >
+    A list of discovered Pinterest pins with: URL, author, description,
+    topic category, and initial relevance assessment.
+  agent: pinterest_listener
+
+qualify_leads:
+  description: >
+    Take ALL discovered posts from all platforms and score each one.
+
+    Scoring criteria (weights from config):
+    - Pain-point relevance (40%): How strongly does this post signal a problem ZipJeweler solves?
+    - Purchase intent (30%): How likely is this person to adopt a software solution?
+    - Influence score (20%): How many followers/karma/connections? Are they a community leader?
+    - Recency (10%): How recent is the post?
+
+    For each lead also:
+    1. Assign an audience segment (Indie CAD Modeler, Etsy Seller, Brick-and-Mortar, Custom Jeweler, Manufacturer, Repair Shop)
+    2. Estimate a dollar value based on segment LTV and purchase likelihood
+    3. Determine which ZipJeweler features are most relevant to their pain point
+    4. Flag any leads with score >= 70 as high-priority for engagement
+
+    {user_direction}
+  expected_output: >
+    A scored and classified list of leads with: platform, URL, author,
+    topic category, audience segment, lead score (0-100), dollar value,
+    relevant ZipJeweler features, and priority flag.
+  agent: lead_qualifier

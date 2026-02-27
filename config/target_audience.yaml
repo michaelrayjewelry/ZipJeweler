@@ -1,0 +1,245 @@
+# =============================================================================
+# ZipJeweler — Target Audience & Listening Configuration
+# =============================================================================
+# Defines who we're looking for, what pain points to search, and where to look.
+# Agents read this at the start of every cycle.
+# =============================================================================
+
+# --- Ideal Customer Profiles ---
+audience_segments:
+  indie_cad_modelers:
+    description: "Solo CAD designers using Rhino, MatrixGold, ZBrush, or Blender for jewelry"
+    platforms: [reddit, instagram, linkedin]
+    best_content: "How-to, before/after renders, workflow tips"
+    pain_points: ["file management", "client communication", "pricing CAD work", "production handoff"]
+
+  etsy_jewelry_sellers:
+    description: "Small-scale jewelry sellers on Etsy, often multi-channel"
+    platforms: [reddit, pinterest, facebook]
+    best_content: "Inventory tips, time-saving, Etsy integration"
+    pain_points: ["inventory sync across channels", "order tracking", "pricing consistency", "shipping management"]
+
+  brick_and_mortar_stores:
+    description: "Physical jewelry store owners with walk-in customers"
+    platforms: [linkedin, facebook]
+    best_content: "Business management, CRM, repair tracking"
+    pain_points: ["customer follow-up", "repair tracking", "consignment management", "point of sale"]
+
+  custom_jewelers:
+    description: "Designers doing bespoke/commission work for individual clients"
+    platforms: [instagram, linkedin, reddit]
+    best_content: "Production workflow, CAD integration, client management"
+    pain_points: ["custom order tracking", "client approval workflow", "production timeline management", "deposit tracking"]
+
+  jewelry_manufacturers:
+    description: "Small-to-mid manufacturers doing production runs and casting"
+    platforms: [linkedin, reddit]
+    best_content: "Production management, casting workflow, batch tracking"
+    pain_points: ["production scheduling", "casting tree management", "quality control tracking", "order fulfillment"]
+
+  jewelry_repair_shops:
+    description: "Shops focused on jewelry repair and restoration"
+    platforms: [facebook, reddit]
+    best_content: "Repair tracking, customer communication, before/after"
+    pain_points: ["repair ticket management", "parts inventory", "customer status updates", "warranty tracking"]
+
+# --- Listening Topic Categories ---
+# Each category defines what agents search for across all platforms
+listening_topics:
+  cad_modelers:
+    description: "People posting 3D jewelry models or CAD renders"
+    keywords:
+      - "jewelry CAD"
+      - "ring design CAD"
+      - "MatrixGold"
+      - "Rhino jewelry"
+      - "3D jewelry model"
+      - "CAD rendering jewelry"
+      - "jewelry 3D printing"
+      - "ZBrush jewelry"
+    example_signals:
+      - "Just finished this CAD model"
+      - "ring design in Rhino"
+      - "rendered this pendant"
+
+  jewelry_designers:
+    description: "Designers posting renderings and design portfolios"
+    keywords:
+      - "jewelry rendering"
+      - "jewelry design portfolio"
+      - "custom design render"
+      - "jewelry designer"
+      - "engagement ring design"
+      - "pendant design"
+    example_signals:
+      - "Here's my latest rendering"
+      - "new design for a client"
+
+  custom_jewelry_questions:
+    description: "People asking about custom jewelry creation"
+    keywords:
+      - "custom ring"
+      - "custom engagement ring"
+      - "commission jewelry"
+      - "bespoke jewelry"
+      - "how to get custom jewelry made"
+      - "custom jewelry process"
+    example_signals:
+      - "How do I get a custom ring made?"
+      - "looking for custom engagement ring"
+      - "anyone know a good custom jeweler"
+
+  jewelry_production:
+    description: "Comments about production issues, workflow, manufacturing"
+    keywords:
+      - "jewelry production"
+      - "jewelry manufacturing"
+      - "production run jewelry"
+      - "jewelry workflow"
+      - "bench jeweler workflow"
+      - "jewelry assembly"
+    example_signals:
+      - "production bottleneck"
+      - "managing jewelry production runs"
+      - "assembly line for jewelry"
+
+  casting_issues:
+    description: "Jewelers with casting problems or questions"
+    keywords:
+      - "casting defects"
+      - "lost wax casting"
+      - "porosity problems"
+      - "casting tree setup"
+      - "investment casting jewelry"
+      - "casting house"
+      - "vacuum casting"
+      - "centrifugal casting"
+    example_signals:
+      - "casting defects again"
+      - "porosity problems on this ring"
+      - "tree setup advice"
+
+  looking_for_cad:
+    description: "People searching for CAD services or software"
+    keywords:
+      - "need CAD for jewelry"
+      - "best jewelry CAD software"
+      - "CAD designer wanted"
+      - "looking for CAD"
+      - "jewelry CAD service"
+      - "3D model jewelry"
+      - "need someone to CAD"
+    example_signals:
+      - "need CAD for this ring design"
+      - "best software for jewelry CAD?"
+      - "looking for someone to CAD my design"
+
+  looking_for_designers:
+    description: "People searching for jewelry designers"
+    keywords:
+      - "looking for jewelry designer"
+      - "need someone to design"
+      - "commission a design"
+      - "jewelry designer for hire"
+      - "custom design help"
+    example_signals:
+      - "looking for a designer for an engagement ring"
+      - "need someone to design a pendant"
+
+  looking_for_manufacturers:
+    description: "People searching for jewelry manufacturers or casting services"
+    keywords:
+      - "looking for manufacturer"
+      - "need casting house"
+      - "production partner jewelry"
+      - "who manufactures jewelry"
+      - "jewelry manufacturer small batch"
+      - "casting service jewelry"
+    example_signals:
+      - "looking for a good casting house"
+      - "need a manufacturer for small runs"
+      - "production partner for jewelry line"
+
+  business_management_pain:
+    description: "Inventory, orders, CRM, pricing issues"
+    keywords:
+      - "jewelry inventory management"
+      - "jewelry business software"
+      - "jewelry CRM"
+      - "tracking jewelry orders"
+      - "jewelry pricing"
+      - "jewelry POS"
+      - "manage jewelry business"
+      - "jewelry store management"
+      - "jewelry repair tracking"
+    example_signals:
+      - "inventory tracking nightmare"
+      - "lost customer orders"
+      - "pricing headaches"
+      - "need better software for my shop"
+
+# --- Platform-Specific Monitoring Locations ---
+monitoring_locations:
+  reddit:
+    subreddits:
+      - "jewelers"
+      - "jewelrymaking"
+      - "Silversmith"
+      - "Benchjeweler"
+      - "jewelrydesign"
+      - "3Dmodeling"
+      - "Etsy"
+      - "smallbusiness"
+      - "cad"
+    sort_by: "new"
+    time_filter: "day"
+    max_posts_per_sub: 25
+
+  twitter:
+    search_queries:
+      - "jewelry business software"
+      - "jewelry inventory"
+      - "jeweler CRM"
+      - "custom jewelry maker"
+      - "jewelry CAD"
+    max_results: 50
+
+  linkedin:
+    search_queries:
+      - "jewelry business management"
+      - "jewelry industry technology"
+      - "independent jeweler"
+    groups: []
+
+  instagram:
+    hashtags:
+      - "jewelrymaker"
+      - "benchjeweler"
+      - "jewelrydesigner"
+      - "customjewelry"
+      - "jewelrybusiness"
+      - "cadjewelry"
+    max_results: 30
+
+  facebook:
+    groups:
+      - "Jewelry Makers and Designers"
+      - "Jewelry Business Owners"
+      - "Bench Jewelers"
+    max_results: 20
+
+  pinterest:
+    search_queries:
+      - "jewelry business organization"
+      - "jewelry inventory ideas"
+      - "custom jewelry process"
+    max_results: 20
+
+# --- Lead Scoring Weights ---
+lead_scoring:
+  pain_point_relevance: 0.40
+  purchase_intent: 0.30
+  influence_score: 0.20
+  recency: 0.10
+  min_score_to_engage: 70
+  min_score_to_create_content: 50
