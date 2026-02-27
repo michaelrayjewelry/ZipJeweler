@@ -1,0 +1,165 @@
+# =============================================================================
+# ZipJeweler — Platform Configuration
+# =============================================================================
+# Per-platform rules, posting schedules, rate limits, and content formatting.
+# =============================================================================
+
+platforms:
+  reddit:
+    enabled: true
+    posting_enabled: true
+    listening_enabled: true
+    engagement_enabled: true
+    content_rules:
+      max_chars: 10000
+      format: "markdown"
+      tone: "casual"
+      no_hashtags: true
+      no_emojis: true
+      link_placement: "inline or end of comment"
+    rate_limits:
+      max_posts_per_hour: 5
+      max_comments_per_hour: 10
+      min_seconds_between_actions: 30
+    engagement_rules:
+      max_replies_per_day: 10
+      min_lead_score: 70
+      max_replies_per_thread: 1
+    posting_schedule:
+      best_times_utc: ["14:00", "17:00", "21:00"]
+      best_days: ["monday", "tuesday", "wednesday", "thursday"]
+
+  twitter:
+    enabled: true
+    posting_enabled: true
+    listening_enabled: true
+    engagement_enabled: true
+    content_rules:
+      max_chars: 280
+      thread_max_tweets: 5
+      format: "plain"
+      tone: "concise_casual"
+      max_hashtags: 3
+      emoji_allowed: true
+    rate_limits:
+      max_tweets_per_hour: 5
+      max_replies_per_hour: 10
+      min_seconds_between_actions: 60
+    engagement_rules:
+      max_replies_per_day: 15
+      min_lead_score: 65
+      max_replies_per_thread: 1
+    posting_schedule:
+      best_times_utc: ["13:00", "16:00", "20:00"]
+      best_days: ["tuesday", "wednesday", "thursday"]
+
+  linkedin:
+    enabled: true
+    posting_enabled: true
+    listening_enabled: true
+    engagement_enabled: true
+    content_rules:
+      max_chars: 3000
+      format: "rich_text"
+      tone: "professional"
+      max_hashtags: 5
+      emoji_allowed: false
+    rate_limits:
+      max_posts_per_day: 2
+      max_comments_per_hour: 5
+      min_seconds_between_actions: 120
+    engagement_rules:
+      max_replies_per_day: 8
+      min_lead_score: 75
+      max_replies_per_thread: 1
+    posting_schedule:
+      best_times_utc: ["12:00", "15:00"]
+      best_days: ["tuesday", "wednesday", "thursday"]
+
+  instagram:
+    enabled: true
+    posting_enabled: true
+    listening_enabled: true
+    engagement_enabled: true
+    content_rules:
+      max_chars: 2200
+      format: "visual_caption"
+      tone: "casual_visual"
+      max_hashtags: 15
+      emoji_allowed: true
+      requires_image: true
+    rate_limits:
+      max_posts_per_day: 3
+      max_comments_per_hour: 10
+      min_seconds_between_actions: 60
+    engagement_rules:
+      max_replies_per_day: 15
+      min_lead_score: 60
+      max_replies_per_thread: 1
+    posting_schedule:
+      best_times_utc: ["14:00", "18:00", "21:00"]
+      best_days: ["monday", "wednesday", "friday"]
+
+  facebook:
+    enabled: true
+    posting_enabled: true
+    listening_enabled: true
+    engagement_enabled: true
+    content_rules:
+      max_chars: 5000
+      format: "rich_text"
+      tone: "friendly_helpful"
+      max_hashtags: 3
+      emoji_allowed: true
+    rate_limits:
+      max_posts_per_day: 3
+      max_comments_per_hour: 10
+      min_seconds_between_actions: 60
+    engagement_rules:
+      max_replies_per_day: 10
+      min_lead_score: 65
+      max_replies_per_thread: 2
+    posting_schedule:
+      best_times_utc: ["13:00", "16:00", "20:00"]
+      best_days: ["tuesday", "thursday", "saturday"]
+
+  pinterest:
+    enabled: true
+    posting_enabled: true
+    listening_enabled: true
+    engagement_enabled: false  # Pinterest engagement is limited
+    content_rules:
+      max_chars: 500
+      format: "pin_description"
+      tone: "inspirational_practical"
+      max_hashtags: 5
+      emoji_allowed: false
+      requires_image: true
+    rate_limits:
+      max_pins_per_day: 10
+      min_seconds_between_actions: 120
+    engagement_rules:
+      max_replies_per_day: 0
+      min_lead_score: 50
+    posting_schedule:
+      best_times_utc: ["15:00", "20:00"]
+      best_days: ["friday", "saturday", "sunday"]
+
+# --- Global Schedule ---
+crew_schedules:
+  intelligence:
+    frequency: "daily"
+    run_at_utc: "05:00"
+  listening:
+    frequency_minutes: 60
+  engagement:
+    frequency_minutes: 120
+  content_creation:
+    frequency_minutes: 240
+  posting:
+    frequency_minutes: 60
+  analytics:
+    frequency_minutes: 720
+  evolution:
+    frequency: "daily"
+    run_at_utc: "04:00"
