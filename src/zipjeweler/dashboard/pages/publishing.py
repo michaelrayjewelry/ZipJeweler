@@ -54,7 +54,7 @@ def page():
                         st.caption(f"Created: {content.created_at.strftime('%m/%d %H:%M') if content.created_at else '—'}")
                     with col3:
                         if st.button("Post Now", key=f"post_{content.id}", type="primary", use_container_width=True):
-                            st.toast(f"Posting content #{content.id}...", icon="outbox_tray")
+                            st.toast(f"Posting content #{content.id}...", icon="📤")
                         if st.button("Cancel", key=f"cancel_{content.id}", use_container_width=True):
                             st.toast(f"Post #{content.id} cancelled")
 
@@ -130,5 +130,5 @@ def page():
         if st.session_state.get("posting_paused"):
             if st.button("Resume Posting", use_container_width=True):
                 st.session_state["posting_paused"] = False
-                st.toast("Posting resumed!", icon="play_button")
+                st.toast("Posting resumed!", icon="▶️")
                 st.rerun()

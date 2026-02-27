@@ -104,7 +104,7 @@ def render_crew_status_panel():
             with col_action:
                 if st.button(f"Run", key=f"run_{name}", use_container_width=True):
                     st.session_state.crew_statuses[name] = "running"
-                    st.toast(f"{name} Crew started!", icon="rocket")
+                    st.toast(f"{name} Crew started!", icon="🚀")
                     st.rerun()
 
             st.caption(f"**Agents** ({len(crew['agents'])}): {', '.join(crew['agents'])}")

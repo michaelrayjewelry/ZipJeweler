@@ -122,7 +122,7 @@ def page():
     col_a1, col_a2 = st.columns(2)
     with col_a1:
         if st.button("Run Listening Now", type="primary", use_container_width=True):
-            st.toast("Listening crew started!", icon="ear")
+            st.toast("Listening crew started!", icon="👂")
     with col_a2:
         if st.button("Refresh Lead Scores", use_container_width=True):
-            st.toast("Lead re-scoring started!", icon="arrows_counterclockwise")
+            st.toast("Lead re-scoring started!", icon="🔄")

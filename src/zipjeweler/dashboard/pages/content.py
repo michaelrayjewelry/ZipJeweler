@@ -128,7 +128,7 @@ def page():
         if st.button("Generate Content", type="primary"):
             st.toast(
                 f"Generating {gen_type} for {gen_platform} about {gen_topic}...",
-                icon="memo",
+                icon="📝",
             )
 
     # --- Brand Voice Tab ---
@@ -178,4 +178,4 @@ def page():
         )
 
         if st.button("Save Brand Voice", type="primary"):
-            st.toast("Brand voice settings saved!", icon="check")
+            st.toast("Brand voice settings saved!", icon="✅")

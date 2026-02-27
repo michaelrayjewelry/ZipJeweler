@@ -62,15 +62,15 @@ def page():
 
     with col_a1:
         if st.button("Generate New Brief", type="primary", use_container_width=True):
-            st.toast("Brief generation started!", icon="newspaper")
+            st.toast("Brief generation started!", icon="📰")
 
     with col_a2:
         if st.button("Scan Competitors", use_container_width=True):
-            st.toast("Competitor scan started!", icon="magnifying_glass")
+            st.toast("Competitor scan started!", icon="🔍")
 
     with col_a3:
         if st.button("Check AI Answers", use_container_width=True):
-            st.toast("AI answer check started!", icon="robot_face")
+            st.toast("AI answer check started!", icon="🤖")
 
     # --- Competitor Watchlist ---
     st.markdown("---")
@@ -88,7 +88,7 @@ def page():
 
     new_competitor = st.text_input("Add competitor to watch", key="new_competitor")
     if st.button("Add", key="add_competitor") and new_competitor:
-        st.toast(f"Added {new_competitor} to watchlist", icon="plus")
+        st.toast(f"Added {new_competitor} to watchlist", icon="➕")
 
     # --- AI Query Monitor ---
     st.markdown("---")
@@ -107,4 +107,4 @@ def page():
 
     new_query = st.text_input("Add new AI query", key="new_ai_query")
     if st.button("Add Query", key="add_ai_query") and new_query:
-        st.toast(f"Added query: {new_query}", icon="plus")
+        st.toast(f"Added query: {new_query}", icon="➕")

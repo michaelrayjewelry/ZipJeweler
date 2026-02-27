@@ -80,7 +80,7 @@ def page():
                         placeholder=f"Set {env_var} in .env",
                     )
                 if st.button(f"Test {section_name} Connection", key=f"test_{section_name}"):
-                    st.toast(f"Testing {section_name} connection...", icon="magnifying_glass")
+                    st.toast(f"Testing {section_name} connection...", icon="🔍")
 
     # --- Autonomy Levels ---
     with tab_autonomy:
@@ -186,7 +186,7 @@ def page():
         if st.button("Save Brand Config", type="primary"):
             try:
                 yaml.safe_load(edited)
-                st.toast("Brand config validated! (Save to file in production mode)", icon="check")
+                st.toast("Brand config validated! (Save to file in production mode)", icon="✅")
             except yaml.YAMLError as e:
                 st.error(f"Invalid YAML: {e}")
 
@@ -207,7 +207,7 @@ def page():
         if st.button("Save Audience Config", type="primary"):
             try:
                 yaml.safe_load(edited)
-                st.toast("Audience config validated!", icon="check")
+                st.toast("Audience config validated!", icon="✅")
             except yaml.YAMLError as e:
                 st.error(f"Invalid YAML: {e}")
 

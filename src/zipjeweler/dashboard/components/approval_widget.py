@@ -50,7 +50,7 @@ def render_approval_queue(contents: list):
                 ):
                     with get_db() as session:
                         update_content_status(session, content.id, "approved")
-                    st.toast(f"Content #{content.id} approved!", icon="check")
+                    st.toast(f"Content #{content.id} approved!", icon="✅")
                     st.rerun()
 
             with col_edit:
@@ -71,7 +71,7 @@ def render_approval_queue(contents: list):
                 ):
                     with get_db() as session:
                         update_content_status(session, content.id, "rejected")
-                    st.toast(f"Content #{content.id} rejected", icon="x")
+                    st.toast(f"Content #{content.id} rejected", icon="❌")
                     st.rerun()
 
             # Inline edit form
@@ -90,5 +90,5 @@ def render_approval_queue(contents: list):
                     with get_db() as session:
                         update_content_status(session, content.id, "approved", edits=edited_text)
                     st.session_state[f"edit_mode_{content.id}"] = False
-                    st.toast(f"Content #{content.id} edited and approved!", icon="check")
+                    st.toast(f"Content #{content.id} edited and approved!", icon="✅")
                     st.rerun()

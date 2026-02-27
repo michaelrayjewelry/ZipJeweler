@@ -179,4 +179,4 @@ def page():
         )
 
         if st.button("Apply Override", type="primary"):
-            st.toast("Strategy override applied!", icon="check")
+            st.toast("Strategy override applied!", icon="✅")

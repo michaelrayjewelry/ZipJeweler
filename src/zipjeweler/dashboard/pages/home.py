@@ -55,22 +55,22 @@ def page():
 
     with col_q1:
         if st.button("Run Full Pipeline", type="primary", use_container_width=True):
-            st.toast("Full pipeline started! Check crew status for progress.", icon="rocket")
+            st.toast("Full pipeline started! Check crew status for progress.", icon="🚀")
 
     with col_q2:
         if st.button("Generate Daily Brief", use_container_width=True):
-            st.toast("Daily brief generation started!", icon="newspaper")
+            st.toast("Daily brief generation started!", icon="📰")
 
     with col_q3:
         if st.button("Run Listening", use_container_width=True):
-            st.toast("Listening crew started!", icon="ear")
+            st.toast("Listening crew started!", icon="👂")
 
     with col_q4:
         if st.button("Pause All Agents", use_container_width=True):
             if "crew_statuses" in st.session_state:
                 for k in st.session_state.crew_statuses:
                     st.session_state.crew_statuses[k] = "idle"
-            st.toast("All agents paused", icon="stop_sign")
+            st.toast("All agents paused", icon="🛑")
             st.rerun()
 
     # --- System Info ---
