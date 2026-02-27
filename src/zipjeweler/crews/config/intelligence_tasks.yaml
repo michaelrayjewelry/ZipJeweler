@@ -1,0 +1,87 @@
+monitor_ai_answers:
+  description: >
+    Check the following queries in AI search tools and track where ZipJeweler
+    appears vs competitors:
+    - "best jewelry management software"
+    - "jewelry inventory management tool"
+    - "jewelry CRM software"
+    - "jewelry business management"
+    - "jewelry repair tracking software"
+    - "best software for jewelers"
+
+    For each query, note:
+    1. Does ZipJeweler appear? If yes, in what position?
+    2. Which competitors appear? (names and positions)
+    3. What features/benefits are cited for each recommended tool?
+    4. What gaps exist where ZipJeweler could be mentioned but isn't?
+
+    {user_direction}
+  expected_output: >
+    A structured report with: query, ZipJeweler position (or "not found"),
+    competitors found, gap analysis, and recommended content to fill each gap.
+  agent: ai_answer_monitor
+
+watch_competitors:
+  description: >
+    Monitor the following competitor jewelry management tools:
+    - Jeweler's Workbench
+    - GemLightbox
+    - Punchmark
+    - The Edge (by Abbott Jewelry Systems)
+    - Jewel360
+    - RepairShopr (for repair shops)
+
+    Check their websites, social media, and any recent news for:
+    1. New features announced
+    2. Pricing changes
+    3. New content published (blogs, case studies, videos)
+    4. Social media activity and engagement
+    5. Customer complaints or praise
+
+    {user_direction}
+  expected_output: >
+    A competitive intelligence report with: competitor name, recent activity,
+    new features, pricing notes, content published, social engagement metrics,
+    and recommended ZipJeweler responses.
+  agent: competitor_watcher
+
+score_opportunities:
+  description: >
+    Take the AI monitoring report and competitor intelligence report and
+    assign dollar values to each opportunity.
+
+    Use these benchmarks:
+    - Average jewelry software customer LTV: $2,400/year
+    - Average conversion rate from content: 0.5-2%
+    - Average CTR from social media: 1-3%
+
+    Formula: opportunity_value = estimated_monthly_searches × CTR × conversion_rate × LTV
+
+    Rank all opportunities from highest to lowest dollar value.
+    Include both AI answer gaps and competitor weaknesses.
+
+    {user_direction}
+  expected_output: >
+    A prioritized list of opportunities with: description, type (AI gap,
+    competitor weakness, keyword opportunity, market shift), estimated
+    dollar value, confidence level, and recommended action.
+  agent: opportunity_scorer
+
+generate_daily_brief:
+  description: >
+    Compile all intelligence into a daily brief. Include:
+
+    1. **Top 5 Opportunities** ranked by dollar value
+    2. **AI Answer Gaps** — where ZipJeweler should appear but doesn't
+    3. **Competitor Moves** — anything notable from competitors
+    4. **Market Shifts** — any emerging trends or changes
+    5. **Ready-to-Publish Content** — draft content for top opportunities
+    6. **Recommended Actions** — exactly what to do today
+
+    Keep it concise. The reader should understand everything in 5 minutes.
+
+    {user_direction}
+  expected_output: >
+    A formatted daily brief with all sections above, ready to be synced
+    to Google Sheets and optionally emailed.
+  agent: brief_generator
