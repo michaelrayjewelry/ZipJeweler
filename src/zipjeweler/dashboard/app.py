@@ -21,10 +21,36 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- Ensure DB tables exist ---
-from zipjeweler.dashboard.db import ensure_tables
+# --- Ensure DB tables exist; seed demo data on first run ---
+from zipjeweler.dashboard.db import ensure_tables, get_db
 
 ensure_tables()
+
+
+@st.cache_resource
+def _seed_if_empty():
+    """Seed demo data on first launch so the dashboard isn't blank."""
+    from sqlalchemy import func
+    from zipjeweler.models.lead import Lead
+
+    with get_db() as session:
+        count = session.query(func.count(Lead.id)).scalar() or 0
+    if count == 0:
+        try:
+            _project_root = Path(__file__).resolve().parents[3]
+            _seed_script = _project_root / "scripts" / "seed_demo_data.py"
+            if _seed_script.exists():
+                import importlib.util
+
+                spec = importlib.util.spec_from_file_location("seed", str(_seed_script))
+                mod = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(mod)
+                mod.seed()
+        except Exception:
+            pass  # Demo data is optional
+
+
+_seed_if_empty()
 
 # --- Import page modules ---
 from zipjeweler.dashboard.pages.home import page as home_page
